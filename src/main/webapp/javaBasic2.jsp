@@ -51,7 +51,7 @@ table th, table td {
   avg[0] = (double) sum[0] / 2 ; 
   avg[1] = (double) sum[1] / 2 ; 
   avg[2] = (double) sum[2] / 2 ; 
-  avg[3] = ((double) (sum[0]+sum[1]+sum[2])) / 2 ; 
+  avg[3] = (double) (sum[0]+sum[1]+sum[2]) / 2 ; 
   %>
   <!-- 必要に応じて処理を変更してください  -->
   <h1>Java基礎 - 演習問題2</h1>
