@@ -44,6 +44,15 @@ table th, table td {
 
 </head>
 <body>
+  <%
+  int[] sum    ={aScore[0]+bScore[0] ,aScore[1]+bScore[1] ,aScore[2]+bScore[2]} ;
+  double[] avg  ;
+  avg = new double[4] ;
+  avg[0] = (double) sum[0] / 2 ; 
+  avg[1] = (double) sum[1] / 2 ; 
+  avg[2] = (double) sum[2] / 2 ; 
+  avg[3] = ((double) (sum[0]+sum[1]+sum[2])) / 2 ; 
+  %>
   <!-- 必要に応じて処理を変更してください  -->
   <h1>Java基礎 - 演習問題2</h1>
   <h2>成績一覧</h2>
@@ -56,22 +65,22 @@ table th, table td {
     </tr>
     <tr>
       <td>Aさん</td>
-      <td>xxx</td>
-      <td>xxx</td>
-      <td>xxx</td>
+      <td><% out.println(aScore[0]);%></td>
+      <td><% out.println(aScore[1]);%></td>
+      <td><% out.println(aScore[2]);%></td>
     </tr>
     <tr>
       <td>Bさん</td>
-      <td>xxx</td>
-      <td>xxx</td>
-      <td>xxx</td>
+      <td><% out.println(bScore[0]);%></td>
+      <td><% out.println(bScore[1]);%></td>
+      <td><% out.println(bScore[2]);%></td>
     </tr>
   </table>
 
   <h2>平均点</h2>
-  <p>国語：xxx</p>
-  <p>数学：xxx</p>
-  <p>英語：xxx</p>
-  <p>合計：xxx</p>
+  <p>国語：<% out.println(avg[0]);%></p>
+  <p>数学：<% out.println(avg[1]);%></p>
+  <p>英語：<% out.println(avg[2]);%></p>
+  <p>合計：<% out.println(avg[3]);%></p>
 </body>
 </html>
