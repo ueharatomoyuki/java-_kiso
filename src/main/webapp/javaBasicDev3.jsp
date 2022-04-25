@@ -5,6 +5,10 @@
     // ※必要な処理を実装してください
 
     // 入力値取得
+    String num1 = request.getParameter("num1") ;
+    String num2 = request.getParameter("num2") ;
+    String operator = request.getParameter("operator") ;
+
 
     // 表示するメッセージ用の変数
 
@@ -30,7 +34,17 @@
 
   <p>
     <!-- メッセージの表示  -->
-
+	<% if (num1.isEmpty() && num2.isEmpty()){
+			out.println("数値がどちらとも未入力です") ;		
+	} else if (num1.isEmpty() || num2.isEmpty()){
+		out.println("数値を入力してください") ;
+	}else {
+		int x = Integer.parseInt(num1) ;
+		int y = Integer.parseInt(num2) ;
+		
+	}
+	
+	%>
   </p>
 
   <form action="javaBasicDev3.jsp" method="post">
@@ -44,5 +58,7 @@
       name="num2">
     <button type="submit">計算</button>
   </form>
+  
+  
 </body>
 </html>
