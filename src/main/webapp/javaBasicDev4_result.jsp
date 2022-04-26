@@ -9,19 +9,47 @@
     */
 
     // 入力値を取得
-    String[] product = null; //現在は仮で値をセットしている。実際は入力値を受け取る
-
+    String[] product = request.getParameterValues("product");//現在は仮で値をセットしている。実際は入力値を受け取る
+//    String[] tv = {"テレビ","20000"} ;
+//    String[] refrigerator = {"冷蔵庫","30000"} ;
+//    String[] microWave = {"電子レンジ","10000"} ;
+//    String[]washingMachine= {"洗濯機","50000"} ;
     // セッションから現在の所持金を取得
-    int money = 150000; //現在は仮で値をセットしている。実際はセッションから取得する
+     int money = (int) session.getAttribute("money"); //現在は仮で値をセットしている。実際はセッションから取得する
 
     // 表示用変数定義
-    String msg = ""; // 購入メッセージ
-    String result = ""; // 購入した商品
-    int sumAmount = 0; // 購入した金額の合計
+    int l = product.length ;
+    String msg = "以下の商品を購入しました"; // 購入メッセージ
+    String result ="" ;
+    int sumAmount = 0;
+    for (String n: product){
+    	switch (n){
+    	case "tv" :
+    		result += "テレビ" +"<br>";
+    		sumAmount +=20000 ;
+    		break;
+    	case "refrigerator":
+    		result += "冷蔵庫"+"<br>" ;
+    		sumAmount +=30000 ;
+    		break ;
+    	
+    	case "microWave":
+    		result += "電子レンジ"+"<br>" ;
+    		sumAmount +=10000 ;
+    		break ;
+    	case "washingMachine" :
+    		result += "洗濯機"+"<br>" ;
+    		sumAmount +=50000 ;
+    		break;
+    	}
+    }
+     // 購入した商品
+     // 購入した金額の合計
     int newMoney = money; // 購入後の所持金
 
     // 商品が選択されているか判断
     if (product == null || product.length == 0) {
+    	msg = "商品が選ばれていません" ;
 
     } else {
         // 購入金額等の計算を行う
