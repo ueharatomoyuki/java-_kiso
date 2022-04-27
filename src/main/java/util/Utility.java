@@ -1,4 +1,4 @@
-package util;
+ package util;
 
 /**
  * メソッドをまとめたUtilityクラス
@@ -36,18 +36,45 @@ public class Utility {
     public static double getTriangleArea(String widthStr, String heightStr) {
         int width = 0;
         int height = 0;
+        double area  =  0;
+        if(!widthStr.isEmpty()){
+      	  width = Integer.parseInt(widthStr) ;
+      }else {
+      	width = 0 ;
+      }
+        
+        if(!heightStr.isEmpty()){
+        	  height = Integer.parseInt(heightStr) ;
+        }else {
+        	height = 0 ;
+        }
+        
+        area = (double) (width * height) / 2 ;
 
-        return 0;
+        return area ;
     }
-
     /**
      * 引数を数値に変換し、長方形の面積を求める
      */
     public static double getRectangleArea(String widthStr, String heightStr) {
         int width = 0;
         int height = 0;
+        double area = 0;
+        if(!widthStr.isEmpty()){
+        	  width = Integer.parseInt(widthStr) ;
+        }else {
+        	width = 0 ;
+        }
+          
+          if(!heightStr.isEmpty()){
+          	  height = Integer.parseInt(heightStr) ;
+          }else {
+          	height = 0 ;
+          }
+          
+          area = (double) width * height ;
 
-        return 0;
+        return area ;
     }
 
     /**
@@ -56,6 +83,10 @@ public class Utility {
     public static boolean isNullOrEmpty(String str) {
         // todo:引数の値がnull、または空文字の場合は、true
         // それ以外の場合は、falseを返すように処理を修正する
-        return false;
+    	if(str.isEmpty()) {
+    		return true ;
+    	}else {
+            return false;
+    	}
     }
 }
